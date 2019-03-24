@@ -1,28 +1,46 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { ThemeProvider } from 'styled-components'
+import GlobalStyle from './theme/globalStyle'
+import theme from './theme'
+import { CartContext } from './cart-context'
+import { Navigation } from './components'
+import ProductOne from './views/ProductOne'
+import ProductTwo from './views/ProductTwo'
+import ProductThree from './views/ProductThree'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+const App = () => {
+  const [total, setCartTotal] = useState(0)
+  const addToCart = () => {
+    setCartTotal(total + 1)
   }
+  const cartState = {
+    total,
+    addToCart
+  }
+  return (
+    <BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <CartContext.Provider value={cartState}>
+          <GlobalStyle />
+          <Navigation />
+          <Switch>
+            <Route exact path="/" render={props => <ProductOne {...props} />} />
+            <Route
+              exact
+              path="/second"
+              render={props => <ProductTwo {...props} />}
+            />
+            <Route
+              exact
+              path="/third"
+              render={props => <ProductThree {...props} />}
+            />
+          </Switch>
+        </CartContext.Provider>
+      </ThemeProvider>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App
