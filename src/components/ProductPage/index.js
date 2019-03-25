@@ -40,6 +40,9 @@ ProductPage.propTypes = {
 }
 
 const StyledProductPage = styled(ProductPage)`
+  ${props => props.theme.animations.fadeIn};
+  animation-delay: 200ms;
+  opacity: 0;
   background: ${props => props.theme.colors.contentBackground};
   border-radius: ${props => props.theme.borderRadius};
   padding: 20px;
