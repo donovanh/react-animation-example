@@ -9,19 +9,10 @@ const keyframes = {
   }`
 }
 
-const timingFunctions = {
-  easeOutExpo: 'cubic-bezier(0.19, 1, 0.22, 1)',
-  easeOutBack: 'cubic-bezier(0.175, 0.885, 0.32, 1.275)'
-}
-
 const animations = {
   fadeIn: `
     animation: fadeIn 500ms ease-out forwards;
     ${keyframes.fadeIn}
-  `,
-  fadeInUp: `
-    animation: fadeInUp 500ms ${timingFunctions.easeOutExpo};
-    ${keyframes.fadeInUp}
   `
 }
 
