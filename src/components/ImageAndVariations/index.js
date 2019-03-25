@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { HideUntilLoaded } from 'react-animation'
 
 const renderPriceOption = ({ price, name }, setCurrentPrice, currentPrice) => (
   <li key={name}>
@@ -36,7 +37,11 @@ const ImageAndVariations = ({
 
   return (
     <div className={className}>
-      <img src={image} className="image" alt={title} />
+      <div className="image-container">
+        <HideUntilLoaded imageToLoad={image}>
+          <img className="image" src={image} alt={title} />
+        </HideUntilLoaded>
+      </div>
       <ul className="variations">
         {priceOptions.map(option =>
           renderPriceOption(option, setCurrentPrice, currentPrice)
@@ -53,6 +58,12 @@ ImageAndVariations.propTypes = {
 const StyledImageAndVariations = styled(ImageAndVariations)`
   flex-shrink: 0;
   width: 440px;
+
+  .image-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
 
   .image {
     border-radius: ${props => props.theme.borderRadius};
