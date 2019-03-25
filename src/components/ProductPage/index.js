@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import ImageAndVariations from '../ImageAndVariations'
 import { CartContext } from '../../cart-context'
+import { AnimateOnChange } from 'react-animation'
 
 const ProductPage = ({ className, title, description, image }) => {
   const { addToCart } = useContext(CartContext)
@@ -26,10 +27,14 @@ const ProductPage = ({ className, title, description, image }) => {
       <div className="content">
         <h1 className="title">{title}</h1>
         <p className="description">{description}</p>
-        <p className="price">${currentPrice}</p>
-        <button className="addToCart" onClick={handleAddToCart}>
-          {addingToCart ? 'Added to cart' : 'Add to Cart'}
-        </button>
+        <p className="price">
+          $<AnimateOnChange>{currentPrice}</AnimateOnChange>
+        </p>
+        <AnimateOnChange animationIn="bounceIn" animationOut="bounceOut">
+          <button className="addToCart" onClick={handleAddToCart}>
+            {addingToCart ? 'Added to cart' : 'Add to Cart'}
+          </button>
+        </AnimateOnChange>
       </div>
     </div>
   )
@@ -40,6 +45,9 @@ ProductPage.propTypes = {
 }
 
 const StyledProductPage = styled(ProductPage)`
+  ${props => props.theme.animations.fadeIn};
+  animation-delay: 200ms;
+  opacity: 0;
   background: ${props => props.theme.colors.contentBackground};
   border-radius: ${props => props.theme.borderRadius};
   padding: 20px;
