@@ -30,11 +30,12 @@ const ProductPage = ({ className, title, description, image }) => {
         <p className="price">
           $<AnimateOnChange>{currentPrice}</AnimateOnChange>
         </p>
-        <AnimateOnChange animationIn="bounceIn" animationOut="bounceOut">
-          <button className="addToCart" onClick={handleAddToCart}>
+
+        <button className="addToCart" onClick={handleAddToCart}>
+          <AnimateOnChange animationIn="bounceIn" animationOut="bounceOut">
             {addingToCart ? 'Added to cart' : 'Add to Cart'}
-          </button>
-        </AnimateOnChange>
+          </AnimateOnChange>
+        </button>
       </div>
     </div>
   )
