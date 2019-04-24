@@ -3,8 +3,7 @@ import CartIcon from '../CartIcon'
 import styled from 'styled-components'
 
 const showCart = () => {
-  // Not implemented
-  console.log('Show cart button not yet implemented')
+  console.log('showCart pressed')
 }
 
 const CartButton = ({ className, total }) => (
