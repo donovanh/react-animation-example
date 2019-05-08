@@ -10,14 +10,7 @@ const showCart = () => {
 const CartButton = ({ className, total }) => (
   <button onClick={showCart} className={className}>
     <CartIcon />
-    <AnimateOnChange
-      className="cart-button-total"
-      animationIn="bounceIn"
-      animationOut="bounceOut"
-      durationOut="2000"
-    >
-      {total}
-    </AnimateOnChange>
+    <span className="cart-button-total">{total}</span>
   </button>
 )
 

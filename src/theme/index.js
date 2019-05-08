@@ -1,21 +1,3 @@
-const keyframes = {
-  fadeIn: `@keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }`
-}
-
-const animations = {
-  fadeIn: `
-    animation: fadeIn 500ms ease-out forwards;
-    ${keyframes.fadeIn}
-  `
-}
-
 const breakpoints = {
   desktop: '(min-width: 768px)'
 }
@@ -65,7 +47,6 @@ const borderRadius = '6px'
 const boxShadow = '10px 10px 40px rgba(0, 0, 0, 0.2)'
 
 const theme = {
-  animations,
   boxShadow,
   breakpoints,
   buttonColors,
