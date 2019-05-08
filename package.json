@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@nearform/react-animation": "^1.0.6",
     "react": "^16.8.2",
     "react-animation": "^1.0.9",
     "react-dom": "^16.8.2",

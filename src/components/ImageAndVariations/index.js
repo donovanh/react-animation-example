@@ -38,9 +38,7 @@ const ImageAndVariations = ({
   return (
     <div className={className}>
       <div className="image-container">
-        <HideUntilLoaded imageToLoad={image}>
-          <img className="image" src={image} alt={title} />
-        </HideUntilLoaded>
+        <img className="image" src={image} alt={title} />
       </div>
       <ul className="variations">
         {priceOptions.map(option =>

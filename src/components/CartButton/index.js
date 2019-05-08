@@ -4,8 +4,7 @@ import styled from 'styled-components'
 import { AnimateOnChange } from 'react-animation'
 
 const showCart = () => {
-  // Not implemented
-  console.log('Show cart button not yet implemented')
+  console.log('showCart pressed')
 }
 
 const CartButton = ({ className, total }) => (
